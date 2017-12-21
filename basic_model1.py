@@ -11,7 +11,7 @@ print(check_output(["ls", "../input"]).decode("utf8"))
 import numpy as np
 import pandas as pd
 #machine Learning
-from sklearn.linear_model import MultinomialNB
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 
