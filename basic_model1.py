@@ -53,9 +53,9 @@ def  main():
         X_test_tfidf = tfidf_transformer.transform(test_term_doc)
         X_test_tfidf.shape
         
-        from sklearn.naive_bayes import MultinomialNB
+        
         label_cols = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
-        clf=MultinomialNB()
+        
         subm=train_model(label_cols,X_train_tfidf,X_test_tfidf)
         
         subm.to_csv("submission_test.csv", index=False)
