@@ -20,7 +20,7 @@ train = pd.read_csv('../input/train.csv')
 test = pd.read_csv('../input/test.csv')
 subm = pd.read_csv('../input/sample_submission.csv')
 
-def train_model(label_cols):
+def train_model(label_cols,X_train_tfidf,X_test_tfidf):
             clf=MultinomialNB()
             for i in label_cols:
                 clf.fit(X_train_tfidf, train[i].values)
@@ -59,7 +59,7 @@ def  main():
         from sklearn.naive_bayes import MultinomialNB
         label_cols = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
         clf=MultinomialNB()
-        train_model(label_cols)
+        subm=train_model(label_cols,X_train_tfidf,X_test_tfidf)
         
         subm.to_csv("submission_test.csv", index=False)
         
